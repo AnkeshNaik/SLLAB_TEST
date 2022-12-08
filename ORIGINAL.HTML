@@ -1,0 +1,50 @@
+<html>
+    <body>
+     <form id="myForm">
+           
+        String: <input type="text" id="name"><br><br>
+              
+        <input type="button" value="Submit" onclick="Calt()">
+        <input type="button" value="Pay" onclick="Pay()">
+        <h4 id="lengths"></h4>
+        <h4 id="strings"></h4>
+        <h4 id="less3"></h4>
+     </form>
+        <script>
+             let os=[]
+            let l1=[]
+            function Calt(){
+                event.preventDefault()
+                str=document.getElementById("name").value
+               
+                os=[str].concat(os)
+                l3=[]
+                os.forEach((s)=>{
+                    let l2=s.length
+                    l3.push(l2)
+                })
+                l1=l3
+                document.getElementById('myForm').reset()
+                document.getElementById('strings').innerHTML = os
+                document.getElementById('lengths').innerHTML = l1
+                return false
+            }
+
+            
+        function Pay() {
+           
+            let strings = []
+            for (let i = 0; i < l1.length; i++) {
+                if (l1[i] <= 3) {
+                    strings.push(os[i])
+                }
+            }
+
+            document.getElementById('less3').innerHTML = strings
+
+
+           
+        }
+        </script>
+    </body>
+</html>

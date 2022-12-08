@@ -1,0 +1,47 @@
+<html>
+    <body>
+        capitalized vowels : <p id="demo1"></p>
+        Next Character : <p id="demo2"></p>
+        
+   
+       
+        <script>
+            var str1 = prompt("enter sting to capitalize and move to next alphabet")
+            
+             document.getElementById("demo1").innerHTML=alpha(str1);
+             document.getElementById("demo2").innerHTML=cap(str1,1);
+            function alpha(str1){
+                let vowels=['a','e','i','o','u'];
+                let temp="";
+                let chars;
+                for(chars of str1){
+                    if(vowels.includes(chars)){
+                        temp+=chars.toUpperCase();
+                    }
+                    else{
+                        temp+=chars;
+                    }
+                    
+                }
+
+                return temp;
+            }
+
+            function cap(str1,step){
+                step=step%26;
+                var res=" "
+                for(i=0;i<str1.length;i++){
+                    var nextCode=str1.charCodeAt(i)+step;
+                    if(nextCode>122){
+                        nextCode=96+(nextCode-123+1);
+                    }
+                    res +=String.fromCharCode(nextCode);
+                }
+
+                return res;
+
+            }
+        </script>
+
+    </body>
+</html>
